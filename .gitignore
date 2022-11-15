@@ -73,7 +73,3 @@ crashlytics-build.properties
 
 # Weird Apple thing
 .DS_Store
-.idea/CapstoneGame2023.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
