@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float movementSpeed = 10f;
+    private Animator animator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,12 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
+        if (horizontalInput != 0 || verticalInput != 0){
+            animator.SetBool("inWalk",true);
+        }
+        else{
+            animator.SetBool("inWalk",false);
+        }
 
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
