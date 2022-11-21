@@ -19,8 +19,16 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        rb.velocity = new Vector3(horizontalInput*movementSpeed, rb.velocity.y, verticalInput*movementSpeed);
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+        forward.y = 0;
+        forward.Normalize();
+        right.y = 0;
+        right.Normalize();
 
+        Vector3 direction = (forward*verticalInput + right*horizontalInput)*movementSpeed;
+        direction.y = rb.velocity.y;
 
+        rb.velocity = direction;
     }
 }
