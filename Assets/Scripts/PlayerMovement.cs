@@ -6,7 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] float movementSpeed = 10f;
-    private Animator animator;
+    [SerializeField] float turnSpeed = 90f;
+    [SerializeField] private Animator animator;
 
 
     // Start is called before the first frame update
@@ -20,12 +21,8 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        if (horizontalInput != 0 || verticalInput != 0){
-            animator.SetBool("inWalk",true);
-        }
-        else{
-            animator.SetBool("inWalk",false);
-        }
+
+        animator.SetBool("inWalk", horizontalInput != 0 || verticalInput != 0);
 
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
@@ -36,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 direction = (forward*verticalInput + right*horizontalInput)*movementSpeed;
         direction.y = rb.velocity.y;
+
+        if (direction.magnitude > 0.1f) {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * turnSpeed);
+        }
 
         rb.velocity = direction;
     }
