@@ -24,8 +24,10 @@ public class PlayerMovement : MonoBehaviour
 
         animator.SetBool("inWalk", horizontalInput != 0 || verticalInput != 0);
 
-        Vector3 forward = Camera.main.transform.forward;
-        Vector3 right = Camera.main.transform.right;
+        // Vector3 forward = Camera.main.transform.forward;
+        // Vector3 right = Camera.main.transform.right;
+        Vector3 forward = Vector3.forward;
+        Vector3 right = Vector3.right;
         forward.y = 0;
         forward.Normalize();
         right.y = 0;
