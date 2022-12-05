@@ -424,7 +424,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163929227}
-  m_LocalRotation: {x: -0.00000008940697, y: -0.00000003665717, z: 0.00000008553339, w: 1}
+  m_LocalRotation: {x: -0.00000008940697, y: -0.000000036657234, z: 0.00000008553354, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1258,7 +1258,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692465762}
-  m_LocalRotation: {x: 0.55049103, y: 0.000000051791666, z: -0.000000034151228, w: 0.8348411}
+  m_LocalRotation: {x: 0.55049103, y: 0.000000051792274, z: -0.00000003415163, w: 0.8348411}
   m_LocalPosition: {x: 12.24, y: 19.999998, z: -27.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1379,7 +1379,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 802198422}
-  m_LocalRotation: {x: 0.049486164, y: -0.00000003346455, z: 0.00000009016606, w: 0.9987748}
+  m_LocalRotation: {x: 0.049486164, y: -0.000000009612418, z: 0.000000025899466, w: 0.9987748}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1977,7 +1977,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538524401}
-  m_LocalRotation: {x: -0.04196802, y: -0.00000001114453, z: 0.000000023256385, w: 0.999119}
+  m_LocalRotation: {x: -0.04196802, y: -0.00000004247493, z: 0.0000000886366, w: 0.999119}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2611,7 +2611,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851355457}
-  m_LocalRotation: {x: 0.55049103, y: -0.000000051792515, z: 0.00000003415179, w: 0.8348411}
+  m_LocalRotation: {x: 0.55049103, y: -0.000000051792274, z: 0.00000003415163, w: 0.8348411}
   m_LocalPosition: {x: 12.24, y: 19.999998, z: -27.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3029,8 +3029,8 @@ MonoBehaviour:
   textComponent: {fileID: 2081599948}
   lines:
   - This is another quirky dialog
-  - This is yet another quriky dialog
-  textSpeed: 0.8
+  - This is yet another quirky dialog
+  textSpeed: 0.05
 --- !u!1 &2100183986
 GameObject:
   m_ObjectHideFlags: 0
