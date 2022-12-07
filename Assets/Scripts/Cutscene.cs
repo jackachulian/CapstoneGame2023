@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class dialog : MonoBehaviour
+public class Dialog : MonoBehaviour
 {
 
     public TextMeshProUGUI textComponent;
-    public string[] lines;
-    public float textSpeed;
+    public float textSpeed = 0.05f;
+    public TextAsset textFile;
+    private string[] lines;
     private int index;
+
+
     // Start is called before the first frame update
     void Start()
     {
         textComponent.text = string.Empty;
         StartDialog();
+        lines = textFile.text.Split("\n");
     }
 
     // Update is called once per frame
@@ -44,11 +48,23 @@ public class dialog : MonoBehaviour
     }
 
     void NextLine(){
+        // If not at the last line, keep going
         if (index < lines.Length -1){
             index++;
             textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
-        } else {
+
+            // If the current line is empty, skip to the next line
+            if (lines[index].Length == 0)
+            {
+                NextLine();
+            } else {
+                // Otherwise, parse and display the current line
+                StartCoroutine(TypeLine());
+            }
+            
+        } 
+        // otherwise, stop the cutscene
+        else {
             gameObject.SetActive(false);
         }
     }
