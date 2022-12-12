@@ -192,9 +192,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1253996098385199550, guid: ecf6b6c4f9f0e40a29c7d043441dbf42, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.49
+      objectReference: {fileID: 0}
+    - target: {fileID: -1253996098385199550, guid: ecf6b6c4f9f0e40a29c7d043441dbf42, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.89
+      objectReference: {fileID: 0}
+    - target: {fileID: -1253996098385199550, guid: ecf6b6c4f9f0e40a29c7d043441dbf42, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ecf6b6c4f9f0e40a29c7d043441dbf42, type: 3}
       propertyPath: m_Name
       value: BasicChair
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecf6b6c4f9f0e40a29c7d043441dbf42, type: 3}
+      propertyPath: m_TagString
+      value: Chair
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821623529969584324, guid: ecf6b6c4f9f0e40a29c7d043441dbf42, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821623529969584324, guid: ecf6b6c4f9f0e40a29c7d043441dbf42, type: 3}
+      propertyPath: m_Name
+      value: SitPos
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
