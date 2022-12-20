@@ -33,7 +33,7 @@ public class BreathingMinigame : MonoBehaviour
         // holding it down while the circle is contracting will increase the speed and difficulty back up to where it began.
         
         if (!gameOver){
-            if (Input.GetKey("space")){
+            if (Input.GetKeyDown("space")){
                 if (!difficultyChangeMade){
                     if (breathingIn){
                         speed -= 3f;
@@ -41,15 +41,15 @@ public class BreathingMinigame : MonoBehaviour
                         thumbsUp.SetActive(true);
                         StartCoroutine(DelayedTurnOff(0.25f));
                     } else {
-                    if (speed < 120){
-                        speed += 5f;
-                        difficultyChangeMade = true;
-                    } else {
-                        print("difficulty already max");
-                        difficultyChangeMade = true;
-                    }
-                    thumbsDown.SetActive(true);
-                    StartCoroutine(DelayedTurnOff(0.25f));
+                        if (speed < 120){
+                            speed += 5f;
+                            difficultyChangeMade = true;
+                        } else {
+                            print("difficulty already max");
+                            difficultyChangeMade = true;
+                        }
+                        thumbsDown.SetActive(true);
+                        StartCoroutine(DelayedTurnOff(0.25f));
                     }
                 }
             }
