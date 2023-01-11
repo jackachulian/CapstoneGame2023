@@ -7,6 +7,7 @@ public class RoomDarken : MonoBehaviour
     private MeshRenderer ms;
     void Start(){
         ms = GetComponent<MeshRenderer>();
+        ms.enabled = true;
     }
 
     void OnTriggerEnter(Collider collider)
