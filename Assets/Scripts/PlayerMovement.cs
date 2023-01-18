@@ -9,23 +9,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float turnSpeed = 90f;
     [SerializeField] private Animator animator;
 
-    // Player is in an animations
-    private float animatingUntil;
-    // If the player is sitting on a chair
-    // private bool sitting;
-    // // If the player is in transition between two locations (used for sitting, etc)
-    // private bool inTransition;
-    // // Player will continue to transition until this time is reached
-    // private float transitionUntil;
-    // // Speed to move when transitioning (Set on transition)
-    // private float transitionSpeed;
-    // // The position the player is transitioning towards
-    // private Transform transitionDestination;
-    // // The chair the player is on
-    // private GameObject chair;
-    // // Delay in seconds between positions when sitting down and standing up
-    // public float sitDelay = 0.5f;
+    // Used if player is in an animation
+    private string animatorBoolName = null;
 
+    private float animatingUntil;
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -37,83 +25,50 @@ public class PlayerMovement : MonoBehaviour
     {
         bool animating = Time.time < animatingUntil;
 
-        float horizontalInput = animating ? 0 : Input.GetAxis("Horizontal");
-        float verticalInput = animating ? 0 : Input.GetAxis("Vertical");
+        if (!animating)
+        {
+            float horizontalInput = animating ? 0 : Input.GetAxis("Horizontal");
+            float verticalInput = animating ? 0 : Input.GetAxis("Vertical");
 
-        animator.SetBool("inWalk", horizontalInput != 0 || verticalInput != 0);
+            animator.SetBool("inWalk", horizontalInput != 0 || verticalInput != 0);
 
-        // Vector3 forward = Camera.main.transform.forward;
-        // Vector3 right = Camera.main.transform.right;
-        Vector3 forward = Vector3.forward;
-        Vector3 right = Vector3.right;
-        forward.y = 0;
-        forward.Normalize();
-        right.y = 0;
-        right.Normalize();
+            // Vector3 forward = Camera.main.transform.forward;
+            // Vector3 right = Camera.main.transform.right;
+            Vector3 forward = Vector3.forward;
+            Vector3 right = Vector3.right;
+            forward.y = 0;
+            forward.Normalize();
+            right.y = 0;
+            right.Normalize();
 
-        Vector3 direction = (forward*verticalInput + right*horizontalInput)*movementSpeed;
-        direction.y = rb.velocity.y;
+            Vector3 direction = (forward*verticalInput + right*horizontalInput)*movementSpeed;
+            direction.y = rb.velocity.y;
 
-        if (direction.magnitude > 0.1f) {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * turnSpeed);
+            if (direction.magnitude > 0.1f) {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * turnSpeed);
+            }
+
+            rb.velocity = direction;
         }
-
-        rb.velocity = direction;
 
 
         // Only walk if not in animation
-        if (!animating)
+        // Set all animation bools to false
+        if (!animating && animatorBoolName != null)
         {
-            animator.SetBool("waving", false);
+            animator.SetBool(animatorBoolName, false);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            animator.SetBool("waving", true);
-            animatingUntil = Time.time + 1.125f;
+            StartAnimation("waving", 1.125f);
         }
-
-        // // If in transition, move towards, and end transition if past time
-        // if (inTransition) 
-        // {
-        //     transform.position = Vector3.MoveTowards(transform.position, transitionDestination.position, transitionSpeed*Time.deltaTime);
-        //     if (Time.time > transitionUntil)
-        //     {
-        //         inTransition = false;
-        //     }
-        // }
-
-        // // Interact
-        // if (Input.GetButtonDown("Fire1"))
-        // {
-        //     // Sit in chair if not sitting and not in transition
-        //     if (chair != null && !inTransition)
-        //     {
-        //         sitting = true;
-        //         animator.SetBool("sitting", sitting);
-        //         TransitionTo(chair.transform.Find("SitPos"), sitDelay);
-        //     }
-        // }
-
-        // if (animator)
     }
 
-    // void TransitionTo(Transform destination, float delay)
-    // {
-    //     transitionUntil = Time.time + delay;
-    //     transitionSpeed = (destination.position - transform.position).magnitude / delay;
-    // }
-
-    // void OnCollisionEnter(Collision collision)
-    // {
-    //     if (collision.gameObject.CompareTag("Chair"))
-    //     {
-    //         chair = collision.gameObject;
-    //     }
-    // }
-
-    // void OnCollisionExit(Collision collision)
-    // {
-    //     chair = null;
-    // }
+    void StartAnimation(string name, float delay)
+    {
+        animatorBoolName = name;
+        animator.SetBool(name, true);
+        animatingUntil = Time.time + delay;
+    }
 }

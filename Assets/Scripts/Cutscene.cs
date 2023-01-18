@@ -5,9 +5,9 @@ using TMPro;
 
 public class Cutscene : MonoBehaviour
 {
-
+    
     public TextMeshProUGUI textComponent;
-    public float textSpeed = 0.05f;
+    public float textSpeed = 0.04f;
     public TextAsset textFile;
     private string[] lines;
     private int index;
@@ -17,8 +17,8 @@ public class Cutscene : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        StartDialog();
         lines = textFile.text.Split("\n");
+        StartDialog();
     }
 
     // Update is called once per frame
