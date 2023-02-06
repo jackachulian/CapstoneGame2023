@@ -15,10 +15,19 @@ public class Door : MonoBehaviour, IInteractable
     bool IInteractable.Interact(Interactor interactor)
     {
         Debug.Log("Opening door!");
-
         opened = !opened;
 
-        hinge.eulerAngles = Vector3.Slerp(hinge.eulerAngles, new Vector3(0, opened ? 90 : 0, 0), 90f);
+        
+
+        float angle;
+        if (opened)
+        {
+            angle = 90;
+        } else {
+            angle = 0;
+        }
+
+        hinge.eulerAngles = Vector3.Slerp(hinge.eulerAngles, new Vector3(0, angle, 0), 90f);
 
         return true;
     }
