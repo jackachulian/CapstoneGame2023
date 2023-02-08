@@ -17,12 +17,12 @@ public class Door : MonoBehaviour, IInteractable
         Debug.Log("Opening door!");
         opened = !opened;
 
-        
-
         float angle;
         if (opened)
         {
-            angle = 90;
+            float dot = Vector3.Dot(transform.forward, Vector3.Normalize(interactor.transform.position - transform.position));
+            bool inFront = dot > 0;
+            angle = inFront ? 90 : -90;
         } else {
             angle = 0;
         }
