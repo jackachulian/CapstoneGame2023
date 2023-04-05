@@ -2,24 +2,32 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    public Transform interactionPoint;
-    public float interactionPointRadius;
-    public LayerMask interactableMask;
+    [SerializeField] private Transform interactionPoint;
+    [SerializeField] private float interactionPointRadius;
+    [SerializeField] private LayerMask interactableMask;
+    [SerializeField] private InteractionPromptUI _interactionPromptUI;
 
-    public readonly Collider[] colliders = new Collider[3];
-    public int numFound;
+    private readonly Collider[] colliders = new Collider[3];
+    private int numFound;
+
+    private IInteractable _interactable;
+
 
     private void Update()
     {
         numFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadius, colliders, interactableMask);
 
         if (numFound > 0){
-            var interactable = colliders[0].GetComponent<IInteractable>();
+            _interactable = colliders[0].GetComponent<IInteractable>();
 
-            if (interactable != null && Input.GetKeyDown(KeyCode.Space))
+            if (_interactable != null)
             {
-                interactable.Interact(this);
+                if (!_interactionPromptUI.isDisplayed) _interactionPromptUI.Setup(_interactable.interactionPrompt);
+                if (Input.GetKeyDown(KeyCode.Space)) _interactable.Interact(this);
             }
+        } else {
+            if (_interactable != null) _interactable = null;
+            if (_interactionPromptUI.isDisplayed) _interactionPromptUI.Close();
         }
     }
 
