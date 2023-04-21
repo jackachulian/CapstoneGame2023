@@ -10,7 +10,7 @@ public class Cutscene : MonoBehaviour
     public float textSpeed = 0.04f;
     public TextAsset textFile;
     private string[] lines;
-    private int index;
+    public int index;
 
 
     // Start is called before the first frame update
