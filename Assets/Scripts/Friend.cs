@@ -5,7 +5,7 @@ using UnityEngine;
 public class Friend : MonoBehaviour, IInteractable
 {
     public string prompt = "Talk";
-    public bool talked = false;
+    public int talked = 0;
     public string interactionPrompt { get => prompt; }
 
     public Cutscene dialogueBackground;
@@ -15,10 +15,11 @@ public class Friend : MonoBehaviour, IInteractable
     bool IInteractable.Interact(Interactor interactor)
     {   
         Debug.Log("Talked to friend");
-        if (!talked){
-            talked = true;
+        if (talked == 0){
+    
             dialogueBackground.index = 0;
             dialogueBackground.textFile = dialogueOne;
+            dialogueBackground.resetDialog();
             backgroundGameObject.SetActive(true);
 
         }

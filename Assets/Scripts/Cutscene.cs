@@ -35,6 +35,11 @@ public class Cutscene : MonoBehaviour
         }
     }
 
+    public void resetDialog(){
+        textComponent.text = string.Empty;
+        lines = textFile.text.Split("\n");
+    }
+
     void StartDialog(){
         index = 0;
         StartCoroutine(TypeLine());
