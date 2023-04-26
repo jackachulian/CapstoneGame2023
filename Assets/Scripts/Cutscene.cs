@@ -20,7 +20,12 @@ public class Cutscene : MonoBehaviour
     {
         textComponent.text = string.Empty;
         lines = textFile.text.Split("\n");
-        StartDialog();
+        if(DONTPLAYCUTSCENE.playCutscene){
+            StartDialog();
+        }
+        else{
+            gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame

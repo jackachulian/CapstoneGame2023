@@ -85,6 +85,7 @@ public class BreathingMinigame : MonoBehaviour
 
     IEnumerator ReturnToGame(float time){
         yield return new WaitForSeconds(time);
+            DONTPLAYCUTSCENE.playCutscene = false;
             SceneManager.LoadScene("Hallway");
         }
 
