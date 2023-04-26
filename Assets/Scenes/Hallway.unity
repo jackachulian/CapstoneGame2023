@@ -20527,9 +20527,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prompt: Talk
   talked: 0
-  dialogueBackground: {fileID: 0}
-  backgroundGameObject: {fileID: 0}
-  dialogueOne: {fileID: 0}
+  dialogueBackground: {fileID: 204914242}
+  backgroundGameObject: {fileID: 204914238}
+  dialogueOne: {fileID: 4900000, guid: d97a60e2045054fb6ba846bacaa09dac, type: 3}
 --- !u!1001 &1994986249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22166,6 +22166,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1297045129}
     m_Modifications:
+    - target: {fileID: 1237435922211251784, guid: 143288ea81f714ad8b314d6f5a7f2934, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1612652844899019133, guid: 143288ea81f714ad8b314d6f5a7f2934, type: 3}
       propertyPath: m_Name
       value: squatrack
@@ -22213,6 +22217,18 @@ PrefabInstance:
     - target: {fileID: 2101663267293950919, guid: 143288ea81f714ad8b314d6f5a7f2934, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053603168848486376, guid: 143288ea81f714ad8b314d6f5a7f2934, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053603168848486376, guid: 143288ea81f714ad8b314d6f5a7f2934, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6053603168848486376, guid: 143288ea81f714ad8b314d6f5a7f2934, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 23.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

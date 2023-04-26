@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hallway.unity
     guid: c432c84fa0f814d0cbbf751c6d901f41
+  - enabled: 1
+    path: Assets/Scenes/BreathingMinigame.unity
+    guid: eaaa134b688754a4fba006ac0d15b497
   m_configObjects: {}

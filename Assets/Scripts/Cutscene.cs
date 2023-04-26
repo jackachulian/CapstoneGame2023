@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class Cutscene : MonoBehaviour
 {
@@ -63,8 +65,14 @@ public class Cutscene : MonoBehaviour
             {
                 NextLine();
             } else {
-                // Otherwise, parse and display the current line
-                StartCoroutine(TypeLine());
+                if (lines[index] == "$breath"){
+                    SceneManager.LoadScene("BreathingMinigame");
+                }
+                else{
+                    // Otherwise, parse and display the current line
+                    StartCoroutine(TypeLine());
+                }
+
             }
             
         } 
