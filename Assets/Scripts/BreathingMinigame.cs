@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BreathingMinigame : MonoBehaviour
 {
@@ -62,6 +63,8 @@ public class BreathingMinigame : MonoBehaviour
             gameOver = true;
             FinishedText.SetActive(true);
             BottomText.SetActive(false);
+            StartCoroutine(ReturnToGame(5f));
+            
         }
 
     }
@@ -78,6 +81,11 @@ public class BreathingMinigame : MonoBehaviour
         yield return new WaitForSeconds(time);
             thumbsUp.SetActive(false);
             thumbsDown.SetActive(false);
+        }
+
+    IEnumerator ReturnToGame(float time){
+        yield return new WaitForSeconds(time);
+            SceneManager.LoadScene("Hallway");
         }
 
 }
